@@ -1,0 +1,13 @@
+
+button{
+   
+    text-align: center;
+    margin: 0 10rem ;
+    background-color: darkblue;
+    border-radius: 5px;
+    cursor:pointer;
+}
+
+#current-page {
+    font-size: 1.5px;
+}

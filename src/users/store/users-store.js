@@ -2,6 +2,7 @@ import { loadUsersByPage } from '../usecases/load-users-by-page';
 const state = {
     currentPage: 0,
     users: [],
+    
 }
 
 const loadNextPage = async() =>{
@@ -13,7 +14,15 @@ const loadNextPage = async() =>{
 }
 
 const loadPreviousPage = async() =>{
-    throw new Error ( 'No implementado ');
+
+    if( state.currentPage <= 1 ) return;
+
+    const users = await loadUsersByPage( state.currentPage - 1 );
+  if( users.length === 0 ) return;
+
+   state.currentPage -= 1;
+    state.users = users;
+
 
     
 }

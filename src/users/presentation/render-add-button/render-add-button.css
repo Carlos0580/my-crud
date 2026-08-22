@@ -1,0 +1,17 @@
+
+
+.fab-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  /* Estilos para darle forma y coincidir con la paginación */
+  background-color: #0056b3; /* Ajusta este color al azul exacto de tus otros botones */
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+}
