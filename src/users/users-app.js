@@ -13,12 +13,10 @@ export const UserApp = async( element ) => {
     element.innertHTML = 'Loading...'
     await usersStore.loadNextPage();
         element.innertHTML = '';
-
-    // console.log( usersStore.getUsers());
-
-    renderTable( element );
-    renderButtons( element );
+        renderTable( element );
+        renderButtons( element );
 
 
+        
 }
 
