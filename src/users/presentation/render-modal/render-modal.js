@@ -12,6 +12,7 @@ export const showModal = () => {
 //TODO Reset del formulario
 export const hideModal = () => {
     modal?.classList.add( 'hide-modal' );
+    form?.reset();
 
 }
 
@@ -39,8 +40,29 @@ export const renderModal = ( element ) => {
 
     form.addEventListener( 'submit', ( event) => {
         event.preventDefault();
+        
+        const formData = new FormData( form );
+        const userLike = {};
 
-        console.log( 'Formulario enviado' );
+        for( const [ key, value ] of formData ) {
+            if( key === 'balance' ) {
+                userLike[key] = +value;
+                continue;
+            }
+            
+             if( key === 'isActive' ) {
+                userLike[key] = (value === 'on' ) ? true: false;
+                continue;
+             }
+
+            userLike[ key ] = value;
+
+        }
+        
+       // console.log( userLike );
+        //TODO save user
+        hideModal();
+
     });
 
     element.append( modal );
