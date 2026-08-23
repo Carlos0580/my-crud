@@ -17,7 +17,7 @@ export const renderAddButton = ( element ) =>{
      //TODO:
 
      fabButton.addEventListener( 'click', () =>{
-        throw Error( 'No implementado' );
+    
 
      })
 
