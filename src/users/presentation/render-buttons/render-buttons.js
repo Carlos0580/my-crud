@@ -6,35 +6,39 @@ import './render-buttons.css';
  * 
  * @param {HTMLDivElement} element 
  */
-
-
-
 export const renderButtons = ( element ) => {
 
-    const nextButton = document.createElement( 'button');
+    const nextButton = document.createElement( 'button' );
     nextButton.innerText = ' Next >';
 
     const prevButton = document.createElement( 'button' );
     prevButton.innerText = ' < Prev ';
 
     const currentPageLabel = document.createElement( 'span' );
-    currentPageLabel.id = ' current-page ';
+    // Corregido: Se quitan los espacios alrededor del ID
+    currentPageLabel.id = 'current-page'; 
     currentPageLabel.innerText = usersStore.getCurrentPage();
 
-    element.append( prevButton, currentPageLabel, nextButton );
+    // 1. Crear contenedor horizontal para aislar los botones
+    const buttonsContainer = document.createElement( 'div' );
+    buttonsContainer.className = 'buttons-container';
+
+    // 2. Insertar los elementos dentro del nuevo contenedor
+    buttonsContainer.append( prevButton, currentPageLabel, nextButton );
+
+    // 3. Agregar el contenedor a element
+    element.append( buttonsContainer );
 
     nextButton.addEventListener( 'click', async() => {
-        
         await usersStore.loadNextPage(); 
-        currentPageLabel.innerText = usersStore.getCurrentPage()
+        currentPageLabel.innerText = usersStore.getCurrentPage();
         renderTable( element );
-    })
+    });
 
     prevButton.addEventListener( 'click', async() => {
-        
         await usersStore.loadPreviousPage(); 
-        currentPageLabel.innerText = usersStore.getCurrentPage()
+        currentPageLabel.innerText = usersStore.getCurrentPage();
         renderTable( element );
-    })
+    });
 
 }
