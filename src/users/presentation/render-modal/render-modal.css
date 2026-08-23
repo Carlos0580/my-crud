@@ -1,10 +1,7 @@
 .hide-modal {
-    display: none !important;
+    display:  none !important;
+
 }
-
-
-
-
 
 .modal-container {
     position: fixed;
@@ -16,7 +13,6 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
-
 
 }
 
@@ -40,5 +36,5 @@ input {
 }
 
 span, label{
-    color: black;
+    color: rgb(0, 217, 255);
 }
