@@ -65,7 +65,7 @@ export const renderModal = ( element, callback ) => {
         }
     });
 
-    form.addEventListener( 'submit', async ( event) => {
+    form.addEventListener( 'submit', async( event) => {
         event.preventDefault();
         
         const formData = new FormData( form );
@@ -86,8 +86,11 @@ export const renderModal = ( element, callback ) => {
 
         }
         
-       // console.log( userLike );
+       
         await callback( userLike );
+
+
+        
         hideModal();
 
     });
