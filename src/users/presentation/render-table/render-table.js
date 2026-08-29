@@ -27,12 +27,12 @@ const createTable = () => {
  * 
  * @param {PointerEvent} event 
  */
-const tableSelectListener = ( event ) => {
+const tableSelectListener = ( event ) =>  {
     const element = event.target.closest( '.select-user');
     if( !element ) return;
 
     const id = element.getAttribute( 'data-id' );
-    showModal( id );
+    showModal(id);
  
 
     

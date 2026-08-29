@@ -1,27 +1,30 @@
 import { User } from'../models/user'
 import { userModelToLocalhost } from '../mappers/user-to-localhost.mapper'
+import { localhostUserToModel } from '../mappers/localhost-user.mapper'
 
 /**
  * 
  * @param {Like<User>} userLike 
  */
-export const saveUser = async( userLike) => {
+export const saveUser = async( userLike ) => {
 
 
     const user = new User( userLike )
 
-    if( !user.firstName || user.lastName )
-        throw 'First & Last Name are required' 
+    if( !user.firstName || !user.lastName )
+        throw 'First & Last Name are required';
 
     const userToSave = userModelToLocalhost ( user );
+    let userUpdated;
 
     if( user.id ) {
-        return;
-
+        userUpdated =  await updateUser(userToSave);
+    } else{ 
+        userUpdated = await createUser( userToSave );
     }
 
-    const updateUser = await createUser( userToSave );
-    return updateUser;    
+     return localhostUserToModel( userUpdated )
+    
 
 }
 /**
@@ -63,7 +66,7 @@ const updateUser = async( user ) => {
     });
 
     const updateUser = await res.json();
-    console.log({ updateUserr });
+    console.log({ updateUser });
 
     return updateUser;
     

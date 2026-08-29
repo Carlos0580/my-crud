@@ -19,8 +19,6 @@ export const showModal = async ( id ) => {
     const user = await getUserById( id );
     setFormValues( user );
 
-
-
 }
 
 //TODO Reset del formulario
@@ -39,7 +37,6 @@ const setFormValues = ( user ) =>  {
     form.querySelector('[name="lastName"]').value = user.lastName;
     form.querySelector('[name="balance"]').value = user.balance;
     form.querySelector('[name="isActive"]').checked = user.isActive;
-
     loadedUser = user;
 }
 
@@ -65,7 +62,7 @@ export const renderModal = ( element, callback ) => {
         }
     });
 
-    form.addEventListener( 'submit', async( event) => {
+    form.addEventListener( 'submit', async( event ) => {
         event.preventDefault();
         
         const formData = new FormData( form );
@@ -90,7 +87,7 @@ export const renderModal = ( element, callback ) => {
         await callback( userLike );
 
 
-        
+
         hideModal();
 
     });
