@@ -8,15 +8,17 @@ import { User } from "../models/user";
 export const userModelToLocalhost = ( user ) => {
 
     const { 
+        id,
         avatar,
         balance,
         firstName,
         gender,
         isActive,
-        lastName
+        lastName,
     } = user;
 
     return {
+        id,
         avatar,
         balance,
         first_name: firstName,

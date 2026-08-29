@@ -18,7 +18,7 @@ export const renderAddButton = ( element ) =>{
      //TODO:
 
      fabButton.addEventListener( 'click', () =>{
-        showModal( element );    
+        showModal();    
 
      })
      
